@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3</title>
+    <style>
+        /* Tooltip container */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+            /* If you want dots under the hoverable text */
+        }
+
+        /* Tooltip text */
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+
+            /* Position the tooltip text */
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+
+            /* Fade in tooltip */
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Tooltip arrow */
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        /* Show the tooltip text when you mouse over the tooltip container */
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--Task 1-->
+    <h1>Student</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, laboriosam! Minus nesciunt at possimus
+        quasi! Ducimus maxime velit mollitia sed sapiente perspiciatis sunt nihil temporibus. Totam voluptatem ex
+        dolores distinctio tenetur a inventore harum.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla beatae, ipsum voluptatem ipsam excepturi
+        architecto deserunt tenetur aliquam magni saepe vel facilis, consequuntur nemo explicabo dolorum autem quam fuga
+        illo porro facere voluptatibus hic. Sequi cum voluptate, cupiditate atque sunt inventore itaque quisquam sint
+        possimus necessitatibus delectus, neque molestias error vitae quis accusamus laborum.</p>
+    <hr>
+    <!--Task 2-->
+    <ul type="square">
+        <li>First Para</li>
+        <li>Second Para</li>
+        <li>Third Para</li>
+        <li>Fourth Para</li>
+        <li>Fivth Para</li>
+        <li>Sixth Para</li>
+    </ul>
+    <ol type="I">
+        <li>First Para</li>
+        <li>Second Para</li>
+        <li>Third Para</li>
+        <li>Fourth Para</li>
+        <li>Fivth Para</li>
+        <li>Sixth Para</li>
+    </ol>
+    <hr>
+    <!--Task 3-->
+    <a href="/another_page.html"><img height="500px" width="1000px" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80" alt="This is an image."></a>
+    <!-- <a href="/another_page.html"><img height="500px" width="1000px" src="/i1.jpg" alt="This is an image."></a> -->
+
+    <!--Task 4 & 5-->
+    <hr>
+    <div>
+        <div class="tooltip">
+            <a href="/another_page.html">Cilck Here</a>
+            <span class="tooltiptext">This leads you to another page.</span>
+        </div>
+    </div>
+</body>
+
+</html>

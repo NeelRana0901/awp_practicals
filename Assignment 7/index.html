@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf 8">
+    <title>Hello World</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+
+<body ng-app="myApp">
+
+    <style>
+        body{
+            background-color:aliceblue;
+        }
+    </style>
+
+
+    <div ng-controller="HelloWorldCtrl">
+
+        
+       <table border="1">
+           <tr>
+               <td>
+                   Name : {{person.name}}
+               </td>
+           </tr>
+           <tr>
+            <td>
+                Age : {{person.age}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mobile : {{person.mobile}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email IDs
+            </td>
+        </tr>
+        <tr ng-repeat = "email in person.emails">
+            <td >
+                Description : {{email.discription}}
+                Email : {{email.email}}
+            </td>
+        </tr>
+       </table>
+    </div>
+  
+
+</body>
+
+</html>
+

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body style="margin-left: 100px">
+    <h1 class="box">Registration Form</h1>
+    <div ng-app="registrationform">
+      <form
+        action="information.html"
+        method="get"
+        name="registrationform"
+        class="container"
+        novalidate
+      >
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" ng-model="name" required />
+        <span
+          style="color: red"
+          ng-show="registrationform.name.$dirty
+&& registrationform.name.$invalid"
+        >
+          <span ng-show="registrationform.name.$error.required"
+            >Name is required.</span
+          >
+        </span>
+        <br /><br />
+        <label for="mobile">Mobile Number: </label>
+        <input
+          type="number"
+          name="mobile"
+          id="mobile"
+          maxlength="10"
+          minlength="10"
+          ng-model="mobile"
+          required
+        />
+        <span
+          style="color: red"
+          ng-show="registrationform.mobile.$dirty
+&& registrationform.mobile.$invalid"
+        >
+          <span ngshow="registrationform.mobile.$error.required"
+            >Mobile Number is required.</span
+          >
+          <span ngshow="registrationform.mobile.$error.mobile"
+            >Invalid Mobile Number.</span
+          >
+        </span>
+        <br /><br />
+        <label for="email">email: </label>
+        <input type="email" name="email" id="email" ng-model="email" required />
+        <span
+          style="color: red"
+          ng-show="registrationform.email.$dirty
+&& registrationform.email.$invalid"
+        >
+          <span ngshow="registrationform.email.$error.required"
+            >Email is required.</span
+          >
+          <span ng-show="registrationform.email.$error.email"
+            >Invalid email address.</span
+          >
+        </span>
+        <br /><br />
+        <label for="address">Address: </label>
+        <textarea
+          rows="5"
+          cols="30"
+          id="address"
+          name="address"
+          ngmodel="address"
+          required
+        ></textarea>
+        <span
+          style="color: red"
+          ngshow="registrationform.address.$dirty &&
+registrationform.address.$invalid"
+        >
+          <span ngshow="registrationform.address.$error.required"
+            >Address is required.</span
+          >
+        </span>
+        <br /><br />
+        <label for="dob">Date of Birth: </label>
+        <input type="date" name="dob" id="dob" ng-model="dob" required />
+        <span
+          style="color: red"
+          ng-show="registrationform.dob.$dirty &&
+registrationform.dob.$invalid"
+        >
+          <span ng-show="registrationform.dob.$error.required"
+            >Date of Birth is required.</span
+          >
+        </span>
+        <br /><br />
+        <label>Gender: </label>
+        <label for="male">Male</label>
+        <input
+          type="radio"
+          name="gender"
+          id="male"
+          ng-model="gender"
+          value="Male"
+        />
+        <label for="female">Female</label>
+        <input
+          type="radio"
+          name="gender"
+          id="female"
+          ng-model="gender"
+          value="Female"
+        />
+        <label for="other">Other</label>
+        <input
+          type="radio"
+          name="gender"
+          id="other"
+          ng-model="gender"
+          value="Other"
+        />
+        <span
+          style="color: red"
+          ng-show="registrationform.gender.$dirty
+&& registrationform.gender.$invalid"
+        >
+          <span ng-show="registrationform.gender.$error.required"
+            >Gender is required.</span
+          >
+        </span>
+        <br /><br />
+        <label for="uname">Username: </label>
+        <input type="text" name="uname" id="uname" ng-model="uname" required />
+        <span
+          style="color: red"
+          ng-show="registrationform.uname.$dirty
+&& registrationform.uname.$invalid"
+        >
+          <span ngshow="registrationform.uname.$error.required"
+            >Username is required.</span
+          >
+        </span>
+        <br /><br />
+        <label for="password">Password: </label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          ngmodel="password"
+          required
+        />
+        <span
+          style="color: red"
+          ng-show="registrationform.password.$dirty
+&& registrationform.password.$invalid"
+        >
+          <span ng-show="registrationform.password.$error.required"
+            >Password is required.</span
+          >
+        </span>
+        <br /><br />
+        <label for="cpassword">Confirm Password: </label>
+        <input
+          type="password"
+          name="cpassword"
+          id="cpassword"
+          ngmodel="cpassword"
+          equal="{{ registrationform.password }}"
+          required
+        />
+        <span
+          style="color: red"
+          ng-show="registrationform.cpassword.$dirty
+&& registrationform.cpassword.$invalid"
+        >
+          <span ng-show="registrationform.cpassword.$error.required"
+            >Password Confirmation is required.</span
+          >
+          <span ng-show="registrationform.cpassword.$error.equal"
+            >Password does nor match above.</span
+          >
+        </span>
+        <br /><br />
+        <input
+          type="submit"
+          value="Submit"
+          onclick="passvalues(this.form);"
+          ng-disabled="(registrationform.name.$invalid) ||
+(registrationform.mobile.$invalid) || (registrationform.email.$invalid) ||
+(registrationform.address.$invalid) || (registrationform.dob.$invalid) ||
+(registrationform.gender.$invalid) || (registrationform.uname.$invalid) ||
+(registrationform.password.$invalid) ||
+(registrationform.cpassword.$invalid)"
+        />
+        <input type="reset" value="Reset" />
+      </form>
+    </div>
+    <script>
+      var registrationform = angular.module("registrationform", []);
+      function passvalues() {
+        var name = document.getElementById("name").value;
+        localStorage.setItem("setiteam", name);
+        // console.log(name1)
+        var mobile = document.getElementById("mobile").value;
+        localStorage.setItem("MobileNumber", mobile);
+        var email = document.getElementById("email").value;
+        localStorage.setItem("email", email);
+        var address = document.getElementById("address").value;
+        localStorage.setItem("ad", address);
+        var dob = document.getElementById("dob").value;
+        localStorage.setItem("db", dob);
+        var male = document.getElementById("male").value;
+        localStorage.setItem("ma", male);
+        var uname = document.getElementById("uname").value;
+        localStorage.setItem("un", uname);
+        var password = document.getElementById("password").value;
+        localStorage.setItem("pass", password);
+        var cpassword = document.getElementById("cpassword").value;
+        localStorage.setItem("cpass", cpassword);
+        return false;
+      }
+    </script>
+  </body>
+</html>
